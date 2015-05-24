@@ -7,7 +7,6 @@ def index(request):
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     category_list = Category.objects.order_by('-likes')[:5]
     context_dict = {'categories': category_list}
-
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to us
@@ -18,7 +17,7 @@ def category(request, category_name_slug):
         context_dict = {}
         category = Category.objects.get(slug=category_name_slug)
         context_dict['category_name'] = category.name
-        pages = Page.objects.get(category=category)
+        pages = Page.objects.filter(category=category)
         context_dict['pages'] = pages
         context_dict['category'] = category
 

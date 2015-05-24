@@ -10,8 +10,7 @@ def index(request):
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
-
+    # Note that the first parameter is the template we wish to us
     return render(request, 'rango/index.html', context_dict)
 
 def category(request, category_name_slug):
